@@ -66,16 +66,12 @@ export type FlashcardSchemaItem = {
 	 * @example "Spanish Word"
 	 */
 	label: string;
-	/**
-	 * For select and imageSelect, the options for the select
-	 */
-	options?: string[];
 };
 
 /**
  * An Item in flashcard data
  */
-export type FlashcardDataItem = string | number | boolean | string[];
+export type FlashcardDataItem = string | number | boolean;
 
 /**
  * Flashcard data
@@ -84,7 +80,10 @@ export type FlashcardData = Record<
 	/** The Id */
 	string,
 	/** The data */
-	FlashcardDataItem
+	{
+		value: FlashcardDataItem;
+		badValues?: string[];
+	}
 >;
 
 /**
